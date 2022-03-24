@@ -10,11 +10,13 @@ export default function App() {
 
   return (
       <NativeRouter>
+        <View style={styles.container}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Qibla" element={<Qibla />} />
         </Routes>
         <Nav />
+        </View>
       </NativeRouter>
 
   );
@@ -24,7 +26,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'rgb(6, 36, 70)',
-    alignItems: 'center',
-    justifyContent: 'center',
+
   },
 });
