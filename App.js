@@ -6,6 +6,7 @@ import Qibla from './Qibla';
 import Tracker from './Tracker';
 import Nav from './Nav';
 import { NativeRouter, Route, Link, Routes } from "react-router-native";
+import Shop from './Shop';
 
 export default function App() {
   const [score, setScore] = React.useState(null);
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/Qibla" element={<Qibla />} />
           <Route path="/Tracker" element={<Tracker background={background}setBackground={setBackground} score={score} setScore={setScore}/>} />
+          <Route path="/Shop" element={<Shop background={background}setBackground={setBackground} score={score} setScore={setScore} />} />
         </Routes>
         <Nav />
         </View>

@@ -25,7 +25,12 @@ class Qibla extends React.Component{
     }
 
     componentWillUnmount() {
-        this.location.remove();
+        try {
+            this.location.remove();
+        } catch (error) {
+           console.log("null") 
+        }
+        
     }
     
     calculate(targetLocation) {
@@ -77,18 +82,28 @@ class Qibla extends React.Component{
     render() {
         
         return(
-            <View style={{flex: 1, width: '100%'}}><Text>g</Text><Text>g</Text>
+            <View style={{flex: 1, width: '100%',paddingTop:'40%'}}>
                 <Image
                     style={{height: 350, width: 350, alignSelf: 'center', transform : [{rotate: this.state.direction*-1 + "deg"}]}}
                     source={require('./Compass.png')}
                     />
-                <Button onPress={() => this.go()} title='Find Qibla'></Button>
+                <View style={styles.button}><Button onPress={() => this.go()} title='Find Qibla'></Button></View>
+                
                 
             </View>
         );
     }
 }
-
+ const styles=StyleSheet.create({
+     button:{
+         borderWidth:3,
+         borderRadius:20,
+         borderColor:'grey',
+         margin:10,
+         backgroundColor: 'linear-gradient(rgb(6, 36, 70), rgb(4, 40, 63))',
+         
+     }
+ })
 
 
 export default Qibla;
